@@ -1,0 +1,4 @@
+/path/to/repository1
+/path/to/repository2
+
+/path/to/repositoryN

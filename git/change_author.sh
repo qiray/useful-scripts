@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script from https://stackoverflow.com/a/750182 for fixing all wrong author names and emails for all branches and tags
+# Original from https://stackoverflow.com/a/750182 for fixing all wrong author names and emails for all branches and tags
 # Run this script from folder with repository to change.
 # WARNING! These changes are dangerous because they change git history!
 # $1 - wrong email
