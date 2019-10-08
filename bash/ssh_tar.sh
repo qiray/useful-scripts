@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Use it for copying folder with large amount of files via ssh to current folder. It's faster than pure ssh.
-# $1 - address of remote machine
-# $2 - path to directory to copy from remote machine
+# first arguments - address of remote machine (can include user, port and other info)
+# last argument - path to directory to copy from remote machine
 
-if (( $# < 1 )); then
+if (( $# < 2 )); then
     echo "There must be at least 2 arguments - remote address and directory"
     exit
 fi
