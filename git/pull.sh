@@ -11,10 +11,10 @@ fi
 
 LISTFILE="$1"
 
-while read -r line; do
+while read -r line || [ -n "$line" ]; do
     [[ -z "$line" ]] && continue # ignore empty lines
     pushd "$PWD" > /dev/null|| exit 
-    cd "${line/#~/$HOME}" || popd || continue
+    cd "${line/#~/$HOME}" || { popd && continue; }
     echo "Updating repository $line"
     git pull
     popd > /dev/null || exit
