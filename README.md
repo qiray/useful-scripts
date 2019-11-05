@@ -2,6 +2,9 @@
 
 Some useful scripts.
 
+<!-- TODO: script for git push to all remotes -->
+<!-- TODO: update readme file -->
+
 ## Git
 
 1. [Pull script](git/pull.sh) - update multiple repositories from list. List example is [here](git/list_example.txt).
