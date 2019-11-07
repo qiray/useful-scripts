@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Script for updating all repositories from text file $1
-# $1 is a file containing list of repositories (for example see list_example.txt)
-# etc
+# Script for pulling all repositories from text file $1
+# $1 is a file containing list of repositories (for example see ../bash/list_example.txt)
+
+git_pull() {
+    git pull
+}
 
 if (( $# < 1 )); then
     echo "There must be 1 argument - file with repositories' list"
@@ -10,12 +13,7 @@ if (( $# < 1 )); then
 fi
 
 LISTFILE="$1"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-while read -r line || [ -n "$line" ]; do
-    [[ -z "$line" ]] && continue # ignore empty lines
-    pushd "$PWD" > /dev/null|| exit 
-    cd "${line/#~/$HOME}" || { popd && continue; }
-    echo "Updating repository $line"
-    git pull
-    popd > /dev/null || exit
-done < "$LISTFILE"
+export -f git_pull
+bash "$DIR/../bash/parse_filelist.sh" "$LISTFILE" git_pull "Updating repository"

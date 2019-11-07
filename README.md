@@ -2,21 +2,29 @@
 
 Some useful scripts.
 
-<!-- TODO: script for git push to all remotes -->
-<!-- TODO: update readme file -->
-
 ## Git
 
-1. [Pull script](git/pull.sh) - update multiple repositories from list. List example is [here](git/list_example.txt).
+1. [Pull script](git/pull.sh) - local update multiple repositories from list. List example is [here](bash/list_example.txt).
 
 ##### Usage:
 
 ``` bash
-bash git/pull.sh git/list_example.txt
+bash git/pull.sh bash/list_example.txt
 
 ```
 
-2. [Change author](git/change_author.sh) - change the author and committer name and e-mail of multiple commits for all branches and tags (original here - https://stackoverflow.com/a/750182). You should run this script from folder with repository to change. **WARNING! These changes are dangerous because they change git history!**
+2. [Push script](git/push.sh) - script for pushing git repository to all it's remotes. If it's called without arguments it pushes current folder. Else it parses filelist like pull script. List example is [here](bash/list_example.txt).
+
+##### Usage:
+
+``` bash
+bash git/push.sh bash/list_example.txt
+# or
+bash git/push.sh
+
+```
+
+3. [Change author](git/change_author.sh) - change the author and committer name and e-mail of multiple commits for all branches and tags (original here - https://stackoverflow.com/a/750182). You should run this script from folder with repository to change. **WARNING! These changes are dangerous because they change git history!**
 
 ##### Usage:
 
@@ -32,7 +40,16 @@ bash git/change_author.sh WRONG_EMAIL CORRECT_NAME CORRECT_EMAIL
 ##### Usage:
 
 ``` bash
-bash/ssh_tar.sh user@host /path/to/folder
+bash bash/ssh_tar.sh user@host /path/to/folder
 # or 
-bash/ssh_tar.sh user@host -p port /path/to/folder
+bash bash/ssh_tar.sh user@host -p port /path/to/folder
+```
+
+2. [Parse filelist](bash/parse_filelist.sh) -  Parse filelist, call command \$2 for each folder from filelist and print text \$3. List example is [here](bash/list_example.txt).
+
+##### Usage:
+
+``` bash
+# to show all directories in file bash/list_example.txt
+bash/parse_filelist.sh bash/list_example.txt pwd "Current directory"
 ```
