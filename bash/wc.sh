@@ -4,14 +4,16 @@
 # $1 is a directory where files are located
 # other args - extensions of files to process
 
-# TODO: make it work
+if (( $# < 2 )); then
+    echo "There must be at least 2 arguments - directory and "
+    exit
+fi
+
 DIR=$1
 shift
-TYPES=""
+TYPES=( -name "*.$1")
+shift
 for ext in "$@"; do
-    TYPES=$(echo $TYPES -name \"*."$ext"\" -or)
+    TYPES+=( -or -name "*.$ext" )
 done
-TYPES=${TYPES/%-or/} #remove last -or
-SEARCH="\\( $TYPES \\)"
-echo "$DIR" $SEARCH
-# find $DIR -type f $SEARCH -exec wc {} +
+find $DIR -type f "${TYPES[@]}" -exec wc {} +
