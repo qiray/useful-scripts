@@ -14,6 +14,6 @@ shift
 TYPES=( -name "*.$1")
 shift
 for ext in "$@"; do
-    TYPES+=( -or -name "*.$ext" )
+    TYPES+=( -or -name \*."$ext" )
 done
-find $DIR -type f "${TYPES[@]}" -exec wc {} +
+find "$DIR" -type f \( "${TYPES[@]}" \) -exec wc {} +
