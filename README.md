@@ -53,3 +53,5 @@ bash bash/ssh_tar.sh user@host -p port /path/to/folder
 # to show all directories in file bash/list_example.txt
 bash/parse_filelist.sh bash/list_example.txt pwd "Current directory"
 ```
+
+<!-- 3. TODO: add wc.sh script -->
