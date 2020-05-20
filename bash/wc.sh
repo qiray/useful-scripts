@@ -5,7 +5,7 @@
 # other args - extensions of files to process
 
 if (( $# < 2 )); then
-    echo "There must be at least 2 arguments - directory and "
+    echo "There must be at least 2 arguments - directory and file extensions to count"
     exit
 fi
 
