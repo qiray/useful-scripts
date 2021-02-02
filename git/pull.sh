@@ -4,7 +4,7 @@
 # $1 is a file containing list of repositories (for example see ../bash/list_example.txt)
 
 git_pull() {
-    git pull --recurse-submodules
+    git pull --recurse-submodules --rebase
 }
 
 if (( $# < 1 )); then
