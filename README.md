@@ -32,7 +32,7 @@ bash git/push.sh
 
 Change the author and committer name and e-mail of multiple commits for all branches and tags (original here - https://stackoverflow.com/a/750182). You should run this script from folder with repository to change. 
 
-**WARNING! These changes are dangerous because they change git history!**
+**WARNING! These changes are dangerous because they change remote git history!**
 
 #### Usage:
 

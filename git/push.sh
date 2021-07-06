@@ -6,7 +6,7 @@
 
 git_push_to_all_remotes() {
     for origin in $(git remote); do
-        git push "$origin"
+        git push --all "$origin"
     done
 }
 
